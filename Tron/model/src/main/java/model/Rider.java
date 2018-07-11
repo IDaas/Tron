@@ -23,7 +23,7 @@ public class Rider extends Elements implements IRider , IElements{
  */
 public Rider(int x, int y, Color color , Direction direction,Grid grid) {
 		super(x, y, color);
-		this.direction=direction;
+		this.setDirection(direction);
 		this.grid=grid;
 		// TODO Auto-generated constructor stub
 	}
@@ -36,7 +36,7 @@ public Rider(int x, int y, Color color , Direction direction,Grid grid) {
  */
 public void move() {
 	this.particles.add(0, new Particles(this.x, this.y, this.color));
-	switch(this.direction) {
+	switch(this.getDirection()) {
 	case EST: this.x=x+1;
 		break;
 	case NORD: this.y=y-1;
@@ -91,11 +91,11 @@ public ArrayList<IElements> getParticles() {
  */
 @Override
 public void turnRight() {
-	switch(this.direction) {
-	case NORD: direction = Direction.EST;break;
-	case EST: direction = Direction.SUD;break;
-	case SUD: direction = Direction.OUEST;break;
-	case OUEST: direction = Direction.NORD;break;
+	switch(this.getDirection()) {
+	case NORD: setDirection(Direction.EST);break;
+	case EST: setDirection(Direction.SUD);break;
+	case SUD: setDirection(Direction.OUEST);break;
+	case OUEST: setDirection(Direction.NORD);break;
 	}
 	
 }
@@ -105,13 +105,25 @@ public void turnRight() {
  */
 @Override
 public void turnLeft() {
-		switch(this.direction) {
-		case NORD: direction = Direction.OUEST;break;
-		case EST: direction = Direction.NORD;break;
-		case SUD: direction = Direction.EST;break;
-		case OUEST: direction = Direction.SUD;break;
+		switch(this.getDirection()) {
+		case NORD: setDirection(Direction.OUEST);break;
+		case EST: setDirection(Direction.NORD);break;
+		case SUD: setDirection(Direction.EST);break;
+		case OUEST: setDirection(Direction.SUD);break;
 		}
 	
+}
+
+
+
+public Direction getDirection() {
+	return direction;
+}
+
+
+
+public void setDirection(Direction direction) {
+	this.direction = direction;
 }
 
 

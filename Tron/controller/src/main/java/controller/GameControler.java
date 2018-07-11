@@ -15,10 +15,11 @@ public class GameControler implements IController {
 	ITronModel model;
 	
 	/**
-	 * Constructor
-	 * @param Model , View
-	 * 
-	 * 
+	  Constructor
+	  @param  model
+	  @param  view
+	  
+	  
 	 */
 	public GameControler(ITronModel model , IView view) {
 		this.model=model;
